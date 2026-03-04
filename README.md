@@ -10,6 +10,8 @@ does not release memory of ongoing tasks when dropped and it uses
 a limited queue for scheduled tasks. If more than 2048 futures
 are spawned onto the executor, the device will panic or exhibit UB if
 within an ISR.
+Thirdly, the task the executor is created on MUST NOT be destroyed
+unless the executor and all references to it are gone.
 
 This executor is meant to be run together with a `block_on`
 using FreeRTOS task notifications (e.g. `esp_idf_hal::task::block_on`).

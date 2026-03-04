@@ -40,7 +40,10 @@ pub struct LocalExecutor {
 }
 
 impl LocalExecutor {
-    pub fn new() -> Self {
+    /// # Safety
+    /// 
+    /// The task this executor is created on must never be destroyed.
+    pub unsafe fn new() -> Self {
         Self {
             state: Arc::new(State::new()),
             _not_send_sync: PhantomData,
