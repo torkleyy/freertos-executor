@@ -2,6 +2,7 @@
 
 A very simple async executor using FreeRTOS queues and task notification
 for task scheduling and task parking / unparking.
+Tasks are implemented by the `async-task` crate (also used by `async-executor`).
 
 Many choices have been made to keep the executor simple and efficient,
 but limiting the flexibility and safety. Namely, the executor
@@ -23,3 +24,4 @@ ESP-IDF and ESP32 are trademarks or registered trademarks of
 Espressif Systems (Shanghai) Co., Ltd.
 This project is independent and is not affiliated with or endorsed by
 Amazon Web Services, Inc. or Espressif Systems (Shanghai) Co., Ltd.
+
