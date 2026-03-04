@@ -6,7 +6,10 @@ Tasks are implemented by the `async-task` crate (also used by `async-executor`).
 
 Many choices have been made to keep the executor simple and efficient,
 but limiting the flexibility and safety. Namely, the executor
-does not release memory of ongoing tasks when dropped.
+does not release memory of ongoing tasks when dropped and it uses
+a limited queue for scheduled tasks. If more than 2048 futures
+are spawned onto the executor, the device will panic or exhibit UB if
+within an ISR.
 
 This executor is meant to be run together with a `block_on`
 using FreeRTOS task notifications (e.g. `esp_idf_hal::task::block_on`).

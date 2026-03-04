@@ -144,7 +144,7 @@ impl State {
         };
 
         if sent == 0 {
-            // we never expect the queue to fill up completely, panic as last restort
+            // we never expect the queue to fill up completely, panic as last resort
             unsafe {
                 drop(Box::from_raw(runnable_ptr));
             }
